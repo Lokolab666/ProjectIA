@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/Inicio_Nino', function () {
-    return view('app');
+    return view('nino.inicionino');
 });
