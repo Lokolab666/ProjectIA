@@ -23,6 +23,7 @@
         a{
             text-decoration: none;
         }
+        
     </style>
 </head>
 <body>
@@ -45,7 +46,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     Nombre y Apellido
-                    <img src="{{ asset('/LogoUser.png') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    <img src="{{ asset('/Image/LogoUser.png') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
@@ -54,7 +55,7 @@
         </div>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('/Logo.png') }}" alt="Logo Fundacion" width="160" height="60">
+                <img src="{{ asset('/Image/Logo.png') }}" alt="Logo Fundacion" width="160" height="60">
             </a>
         </div>
     </nav>

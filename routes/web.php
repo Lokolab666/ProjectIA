@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/Inicio_Nino', function () {
     return view('nino.inicionino');
 });
+
+Route::get('/FotoNueva', function () {
+    return view('nino.fotonino');
+});
