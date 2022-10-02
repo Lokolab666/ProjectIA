@@ -21,6 +21,6 @@ Route::get('/Inicio_Nino', function () {
     return view('nino.inicionino');
 });
 
-Route::get('/FotoNueva', function () {
+Route::get('/FotoNueva', array('as' => 'FotoNueva', function() {
     return view('nino.fotonino');
-});
+}));
