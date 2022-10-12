@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tomar Fotografía</h5>
                         <p class="card-text">Accede a tomar una nueva foto</p>
-                        <a href="{{ route('FotoNueva') }}" class="btn btn-primary">Tomar foto</a>
+                        <a href="{{ route('get-photo') }}" class="btn btn-primary">Tomar foto</a>
                     </div>
                 </div>
             </div>

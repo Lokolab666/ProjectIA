@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Inicio_Nino', function () {
+
+Route::get('/', function () {
     return view('nino.inicionino');
 });
+*/
 
+
+Route::get("/",[PhotoController::class,"getIndex"])->name('index');
+Route::get("/get-photo",[PhotoController::class,"getPhoto"])->name('get-photo');
+
+/*
 Route::get('/FotoNueva', array('as' => 'FotoNueva', function() {
     return view('nino.fotonino');
 }));
+*/
