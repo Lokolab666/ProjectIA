@@ -24,3 +24,15 @@ Route::get('/Inicio_Nino', function () {
 Route::get('/FotoNueva', array('as' => 'FotoNueva', function() {
     return view('nino.fotonino');
 }));
+
+Route::get('/Tarjetas', array('as' => 'Tarjetas', function() {
+    return view('nino.tarjetanino');
+}));
+
+Route::get('/Tarjeta-Alimento', array('as' => 'Tarjeta-Alimento', function() {
+    return view('nino.tarjetaAlimento');
+}));
+
+Route::get('/Tarjeta-Familia', array('as' => 'Tarjeta-Familia', function() {
+    return view('nino.tarjetaFamilia');
+}));
