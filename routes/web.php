@@ -36,3 +36,10 @@ Route::get('/Tarjeta-Alimento', array('as' => 'Tarjeta-Alimento', function() {
 Route::get('/Tarjeta-Familia', array('as' => 'Tarjeta-Familia', function() {
     return view('nino.tarjetaFamilia');
 }));
+
+Route::get('/LoginUser', array('as' => 'LoginUser', function() {
+    return view('loginUser');
+}));
+
+Route::post('/image', 'App\Http\Controllers\ImageController@post');
+Route::post('/people', 'App\Http\Controllers\PeopleController@post');

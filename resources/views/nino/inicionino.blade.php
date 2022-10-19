@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
-                <img src="{{ asset('/Image/mono.png') }}" class="card-img-top" alt="Acceder a foto">
+                <img src="{{ asset('/ImagePictur/mono.png') }}" class="card-img-top" alt="Acceder a foto">
                     <div class="card-body">
                         <h5 class="card-title">Tomar Fotografía</h5>
                         <p class="card-text">Accede a tomar una nueva foto</p>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card">
-                <img src="{{ asset('/Image/tarjeta.png') }}" class="card-img-top" alt="Acceder a libreria">
+                <img src="{{ asset('/ImagePictur/tarjeta.png') }}" class="card-img-top" alt="Acceder a libreria">
                     <div class="card-body">
                         <h5 class="card-title">Tarjetas</h5>
                         <p class="card-text">Mira las tarjetas que has creado</p>
