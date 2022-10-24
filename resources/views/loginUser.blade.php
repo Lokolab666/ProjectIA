@@ -27,7 +27,7 @@
             <p class="text-center">Iniciar sesión</p>
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="loginName" class="form-control" />
+                <input type="text" id="loginName" class="form-control" />
                 <label class="form-label" for="loginName">Email or username</label>
             </div>
             <!-- Password input -->
@@ -80,15 +80,15 @@
     </div>
 
     
-    <label class="form-label" for="registerRole">Rol</label>
+    <label class="form-label" for="registerRole1">Rol</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="registerRole1" id="registerRole1" value="paciente" checked>
+        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole1" value="1" checked>
         <label class="form-check-label" for="registerRole1Ex">
         Paciente
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="registerRole2" id="registerRole2" value="tutor">
+        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole2" value="2">
         <label class="form-check-label" for="registerRole2Ex">
         Tutor
         </label>
@@ -104,7 +104,6 @@
     <button type="submit" class="btn btn-primary btn-block mb-3">Registrarse</button>
     </form>
 
-
     </div>
 </div>
 
@@ -117,5 +116,6 @@
 </div>
 </div>
 </div>
+
 
 @endsection

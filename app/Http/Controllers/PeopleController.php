@@ -15,7 +15,12 @@ class PeopleController extends Controller
         $post->age = $request->registerAge;
         $post->user = $request->registerUsername;
         $post->password = $request->registerPassword;
-        $post->role_id = $request->registerRole1;
+        
+        $collection = array('');
+        $collection=$request->input('registerRole');
+        echo $collection[0];
+
+        $post->role_id = $collection[0];
 
         $post->save();
         
