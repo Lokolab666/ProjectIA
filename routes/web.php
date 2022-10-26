@@ -43,3 +43,5 @@ Route::get('/LoginUser', array('as' => 'LoginUser', function() {
 
 Route::post('/image', 'App\Http\Controllers\ImageController@post');
 Route::post('/people', 'App\Http\Controllers\PeopleController@post');
+
+Route::get('/IdentifyImage', 'App\Http\Controllers\IdentifyImage@index');
