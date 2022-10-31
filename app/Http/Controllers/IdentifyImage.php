@@ -10,9 +10,17 @@ class IdentifyImage extends Controller
 {
     public function index(Request $request)
     {
-        $scriptPythonEnvi = 'C:/Users/crist/AppData/Local/Microsoft/WindowsApps/python3.10.exe';
-        $scritpFile = '"c:/Users/crist/Documentos/UPTC/8 SEMESTRE/INTELIGENCIA ARTIFICIAL/API IA/ProjectIAInternet/public/Algorithm.py"';
-        $process = new Process("& $scriptPythonEnvi $scritpFile");
+        $pathToFilePython = 'C:\Users\crist\AppData\Local\Programs\Python\Python39\python.exe';
+        
+        
+        $scritpFile = 'PythonCode\main.py';
+
+
+        $process = new Process(["python", $scritpFile], env: [
+            'SYSTEMROOT' => getenv('SYSTEMROOT'),
+            'PATH' => getenv("PATH")
+          ]);
+          
         $process->run();
 
         // executes after the command finishes
