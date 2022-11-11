@@ -26,4 +26,32 @@ class PeopleController extends Controller
         
         return redirect('/LoginUser');
     }
+
+    public function validate_login(Request $request)
+    {
+        $request->validate([
+            'user' => 'required',
+            'password' => 'required'
+        ]);
+        $credentials = $request->only('user', 'password');
+
+        if (Auth::attempt($credentials))
+        {
+            return redirect('/inicionino');
+        }
+
+        return redirect('/LoginUser')->with('success', 'Login error');
+
+    }
+
+    public function inicionino()
+    {
+        if (Auth::check())
+        {
+            return view('/inicionino');
+        }
+
+        return redirect('/LoginUser')->with('success', 'No allowed');
+    }
+
 }

@@ -19,6 +19,7 @@ class ImageController extends Controller
             $image->move('images', $image_new_name);
             $post = new Image;
             $post->image = 'images/' . $image_new_name;
+           // $post->folder_location = 'resources/picture' . 
             $post->category_id = 1;
             $post->patient_id = 1;
             

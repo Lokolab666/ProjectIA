@@ -23,6 +23,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('folder_location');
             $table->biginteger('category_id')->unsigned();
             $table->biginteger('patient_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');

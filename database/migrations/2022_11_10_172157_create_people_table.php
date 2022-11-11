@@ -15,13 +15,6 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
-            $table->integer('age');
-            $table->string('user')->unique();
-            $table->string('password');
-            $table->biginteger('role_id')->unsigned();
-            $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }

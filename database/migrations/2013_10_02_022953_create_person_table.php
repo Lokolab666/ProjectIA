@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('person', function (Blueprint $table) {
             $table->id();
-            $table->string('name_role')->unique();
-            $table->string('description');
+            $table->string('card_Id')->unique();
+            $table->string('name');
+            $table->string('last_name');
+            $table->integer('age');
+            $table->string('user_person')->unique();
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('person');
     }
 };

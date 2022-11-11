@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('type')->default(0);
+            /* Users: 0 -> Paciente 1 -> Tutor 2 -> Admin*/
             $table->rememberToken();
+            $table->foreign('email')->references('user_person')->on('person');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

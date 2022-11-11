@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
-            $table->biginteger('people_id')->unsigned();
+            $table->biginteger('person_id')->unsigned();
             $table->biginteger('patient_id')->unsigned();
-            $table->foreign('people_id')->references('id')->on('people');
+            $table->foreign('person_id')->references('id')->on('person');
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });

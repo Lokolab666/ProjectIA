@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->string('card_Id');
+            $table->integer('score');
             $table->integer('level');
-            $table->biginteger('people_id')->unsigned();
-            $table->foreign('people_id')->references('id')->on('people');
+            $table->foreign('card_Id')->references('card_Id')->on('person');
             $table->timestamps();
         });
     }

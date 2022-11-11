@@ -23,8 +23,9 @@
 
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-        <form>
-            <p class="text-center">Iniciar sesión</p>
+    <p class="text-center">Iniciar sesión</p>
+        <form action="/people/validate_login" method="POST">
+            @csrf
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="text" id="loginName" class="form-control" />
@@ -40,55 +41,64 @@
     </div>
     
     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
-
+    <p class="text-center">Nuevo Usuario</p>
+    <div class="col-md-12">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <span class="text-danger">{
+                    {$error}}</span>
+                    <br>
+            @endforeach
+        @endif        
+    </div>
 
     <form action="/people" enctype="multipart/form-data" method="POST">
     @csrf
-        <p class="text-center">Nuevo Usuario</p>
+        
     <!-- Name input -->
     <div class="form-outline mb-4">
-        <input type="text" id="registerName" name="registerName" class="form-control" />
+        <input type="text" id="registerName" name="registerName" class="form-control" required />
         <label class="form-label" for="registerName">Nombre</label>
     </div>
 
     <div class="form-outline mb-4">
-        <input type="text" id="registerLastName" name="registerLastName" class="form-control" />
+        <input type="text" id="registerLastName" name="registerLastName" class="form-control" required/>
         <label class="form-label" for="registerLastName">Apellido</label>
     </div>
 
     <div class="form-outline mb-4">
-        <input type="number" id="registerAge" name="registerAge" class="form-control" />
+        <input type="number" id="registerAge" name="registerAge" class="form-control" required/>
         <label class="form-label" for="registerAge">Edad</label>
     </div>
 
     <!-- Username input -->
     <div class="form-outline mb-4">
-        <input type="text" id="registerUsername" name="registerUsername" class="form-control" />
+        <input type="text" id="registerUsername" name="registerUsername" class="form-control" required/>
         <label class="form-label" for="registerUsername">Usuario</label>
     </div>
 
     <!-- Password input -->
     <div class="form-outline mb-4">
-        <input type="password" id="registerPassword" name="registerPassword" class="form-control" />
+        <input type="password" id="registerPassword" name="registerPassword" class="form-control" required/>
         <label class="form-label" for="registerPassword">Contraseña</label>
     </div>
 
     <!-- Repeat Password input -->
     <div class="form-outline mb-4">
-        <input type="password" id="registerRepeatPassword" name="registerRepeatPassword" class="form-control" />
+        <input type="password" id="registerRepeatPassword" name="registerRepeatPassword" class="form-control" required/>
         <label class="form-label" for="registerRepeatPassword">Repetir Contraseña</label>
     </div>
 
     
     <label class="form-label" for="registerRole1">Rol</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole1" value="1" checked>
+        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole1" value="1" checked required>
         <label class="form-check-label" for="registerRole1Ex">
         Paciente
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole2" value="2">
+        <input class="form-check-input" type="radio" name="registerRole[]" id="registerRole2" value="2" required>
         <label class="form-check-label" for="registerRole2Ex">
         Tutor
         </label>

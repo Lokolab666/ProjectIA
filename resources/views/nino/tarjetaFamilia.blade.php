@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <p class="fs-2">Tarjetas de Familia</p>
