@@ -65,13 +65,34 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('nino.tarjetaFamilia');
     });*/
 
-    Route::get('/nino/fotonino', [HomeController::class, 'adminHome'])->name('nino.fotonino');
+    Route::get('/admin/inicioadmin', [HomeController::class, 'adminHome'])->name('admin.inicioadmin');
 
-  /*
-    Route::get('/Inicio_Admin', function () {
-        return view('admin.inicioadmin');
-    });
-*/
+    Route::get('/CrearPersona', array('as' => 'CrearPersona', function() {
+        return view('admin.crearPersona');
+    }));
+
+    Route::get('/PasoUno', array('as' => 'PasoUno', function() {
+        return view('admin.pasoUno');
+    }));
+
+    Route::get('/PasoDos', array('as' => 'PasoDos', function() {
+        return view('admin.pasoDos');
+    }));
+
+    Route::get('/PasoTres', array('as' => 'PasoTres', function() {
+        return view('admin.pasoTres');
+    }));
+
+    Route::get('/GestionarUsuario', array('as' => 'GestionarUsuario', function() {
+        return view('admin.gestionarUsuario');
+    }));
+
+    Route::post('/registerPerson', 'App\Http\Controllers\PersonController@post');
+
+    Route::post('/registerPatientOne', 'App\Http\Controllers\PatientController@stepOne');
+
+    Route::post('/registerTutor', 'App\Http\Controllers\TutorController@post');
+
 });
 
 /* Tutor routes */
@@ -81,7 +102,7 @@ Route::middleware(['auth', 'user-access:tutor'])->group(function () {
         return view('nino.fotonino');
     });*/
 
-    Route::get('/nino/tarjetaAlimento', [HomeController::class, 'tutorHome'])->name('nino.tarjetaAlimento');
+    Route::get('/tutor/iniciotutor', [HomeController::class, 'tutorHome'])->name('tutor.iniciotutor');
     /*
       Route::get('/Inicio_Tutor', function () {
           return view('tutor.Iniciotutor');

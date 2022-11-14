@@ -38,10 +38,10 @@ class LoginController extends Controller
                 return redirect()->route('nino.inicionino');
             }else if (auth()->user()->type == 'tutor') {
                 error_log('Tutor');
-                return redirect()->route('nino.tarjetaAlimento');
+                return redirect()->route('tutor.iniciotutor');
             }else if (auth()->user()->type == 'admin'){
                 error_log('Administrador');
-                return redirect()->route('nino.fotonino');
+                return redirect()->route('admin.inicioadmin');
             }
 
 

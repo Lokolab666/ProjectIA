@@ -33,11 +33,11 @@ class HomeController extends Controller
 
     public function adminHome()
     {
-        return view('nino.fotonino');
+        return view('admin.inicioadmin');
     }
    
     public function tutorHome()
     {
-        return view('nino.tarjetaAlimento');
+        return view('tutor.iniciotutor');
     }
 }
