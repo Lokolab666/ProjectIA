@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'login'])->name('home');
-
 
 
 /* Routes for patients */
@@ -87,11 +87,23 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('admin.gestionarUsuario');
     }));
 
+    /*Route::get('/view', 'App\Http\Controllers\UserController@view');*/
+
     Route::post('/registerPerson', 'App\Http\Controllers\PersonController@post');
 
     Route::post('/registerPatientOne', 'App\Http\Controllers\PatientController@stepOne');
 
     Route::post('/registerTutor', 'App\Http\Controllers\TutorController@post');
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('GestionarUsuario', 'index')->middleware('auth')->name('GestionarUsuario');
+    });
+
+    Route::resource('users', UserController::class);
+
+
+    
+    
 
 });
 
