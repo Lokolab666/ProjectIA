@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Librería</h5>
                         <p class="card-text">Gestiona, edita y elimina tus fotos tomadas que se encuentran en la librería de tu hijo, para que puedas tener un mayor control</p>
-                        <a href="#" class="btn btn-primary">Librería</a>
+                        <a href="{{ route('album.index') }}" class="btn btn-primary">Librería</a>
                     </div>
                 </div>
             </div>

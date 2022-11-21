@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlbumController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,11 +101,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     });
 
     Route::resource('users', UserController::class);
-
-
-    
-    
-
 });
 
 /* Tutor routes */
@@ -114,12 +110,14 @@ Route::middleware(['auth', 'user-access:tutor'])->group(function () {
         return view('nino.fotonino');
     });*/
 
-    Route::get('/tutor/iniciotutor', [HomeController::class, 'tutorHome'])->name('tutor.iniciotutor');
-    /*
-      Route::get('/Inicio_Tutor', function () {
-          return view('tutor.Iniciotutor');
-      });
-  */
+    Route::get('/tutor/iniciotutor', [HomeController::class, 'tutorHome'])->name('tutor.iniciotutor')->middleware('auth');
+
+    Route::resource('album', AlbumController::class)->middleware('auth');
+
+    Route::post('album/{album}/upload', [AlbumController::class, 'upload'])->name('album.upload')->middleware('auth');
+
+  
+
   });
 
 
