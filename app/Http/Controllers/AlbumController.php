@@ -102,4 +102,22 @@ class AlbumController extends Controller
         }
         return redirect()->back();
     }
+
+    public function showImage(Album $album, $id)
+    {
+        $media = $album->getMedia();
+        $image = $media->where('id', $id)->first();
+        /*dd($image);*/
+
+        return view('tutor.image-show', compact('album', 'image'));
+    }
+
+    public function destroyImage(Album $album, $id)
+    {
+        $media = $album->getMedia();
+        $image = $media->where('id', $id)->first();
+        $image->delete();
+
+        return redirect()->back();
+    }
 }

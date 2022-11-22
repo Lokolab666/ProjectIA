@@ -116,6 +116,9 @@ Route::middleware(['auth', 'user-access:tutor'])->group(function () {
 
     Route::post('album/{album}/upload', [AlbumController::class, 'upload'])->name('album.upload')->middleware('auth');
 
+    Route::get('album/{album}/image/{image}', [AlbumController::class, 'showImage'])->name('album.image.show');
+
+    Route::delete('album/{album}/image/{image}', [AlbumController::class, 'destroyImage'])->name('album.image.destroy');
   
 
   });

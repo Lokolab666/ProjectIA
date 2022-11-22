@@ -25,10 +25,21 @@
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
                   
                     @foreach ($photos as $photo)
-                        <img src="{{ $photo->getUrl() }}">
+                        <img 
+                        alt='Galeria' 
+                        class='object-cover object-center' 
+                        src="{{ $photo->getUrl('thumb') }}">
+                        <a href="{{ route('album.image.show', [$album->id, $photo->id]) }}">Ver</a>
+                        <form method="POST" action="{{ route('album.image.destroy', [$album->id, $photo->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                        </form>
+                    
                     @endforeach
                     </div>
                 </div>
+                
 
 
             </div>
