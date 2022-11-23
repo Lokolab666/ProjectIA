@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Tarjetas</h5>
                         <p class="card-text">Mira las tarjetas que has creado</p>
-                        <a href="#" class="btn btn-primary">Ver tarjetas</a>
+                        <a href="{{ route('albumn.index') }}" class="btn btn-primary">Ver tarjetas</a>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\AlbumControllerPatient;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,10 +30,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'login'])->name
 Route::middleware(['auth', 'user-access:patient'])->group(function () {
     error_log('message here.1');
     Route::get('/nino/inicionino', [HomeController::class, 'patientHome'])->name('nino.inicionino');
+
+    Route::resource('albumn', AlbumControllerPatient::class)->middleware('auth');
   
-    /*Route::get('/home', function () {
-        return view('nino.inicionino');
-    });
+    /*
 
 
     Route::get('/nino/inicionino', [HomeController::class, 'patientHome'])->name('nino.inicionino');

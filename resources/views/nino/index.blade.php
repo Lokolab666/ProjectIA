@@ -3,7 +3,7 @@
 @section('content')
 <div class="position-absolute top-50 start-50 translate-middle">
     <div class="container-fluid">
-
+<!--
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card">
@@ -60,9 +60,32 @@
                 </div>
             </div>
         </div>
+-->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        @foreach ($albums as $album)
+            <div class="col">
+                    <div class="card">
+                    <img src="{{ asset('/ImagePictur/Gallo.png') }}" class="card-img-top" alt="Gallo pinto">
+                        <div class="card-body">
+                            <h5 class="card-title" href="{{ route('album.show', $album->id) }}">{{$album->title}}</h5>
+                            <a href="{{ route('album.edit', $album->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                <form method="POST" action="{{ route('album.destroy', $album->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                                </form>
+                        </div>
+                    </div>
+            </div>
+        @endforeach
+
+        </div>
 
 
     </div>
 </div>
 
 @endsection
+
+                                    

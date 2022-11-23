@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class AlbumController extends Controller
 {
@@ -12,10 +16,19 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $albums = Album::all();
-        
+        $albumU = Album::all();
+
+        $userId = Auth::id();
+        $albums = DB::table('albums')->where('userId', $userId)->get();
+
         return view('tutor.index', compact('albums'));
     }
 
@@ -38,9 +51,13 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
+        /*$userId = Auth::user()->id;*/
+        $id = Auth::id();
+
         error_log('Entra a store');
         Album::create([
-            'title' => $request->title
+            'title' => $request->title,
+            'userId' => $id
         ]);
         return redirect()->route('album.index');
     }

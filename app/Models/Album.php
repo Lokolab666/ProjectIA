@@ -14,7 +14,10 @@ class Album extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $fillable = ['title'];
+    protected $fillable = [
+        'title',
+        'userId'
+    ];
 
     public function registerMediaConversions(Media $media = null): void
     {
