@@ -13,7 +13,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="patient_id" class="col-md-4 col-form-label text-md-end">{{ __('Identificación Paciente') }}</label>
+                            <label for="patient_id" class="col-md-4 col-form-label text-md-end">{{ __('Identificación Niño') }}</label>
 
                             <div class="col-md-6">
                                 <input id="patient_id" type="number" class="form-control @error('patient_id') is-invalid @enderror" name="patient_id" value="{{ old('patient_id') }}" required autocomplete="patient_id">
@@ -43,11 +43,21 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Finalizar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <p>
+                    <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="{{ route('PasoUno') }}">1</a></li>
+                        <li class="page-item disabled">
+                        <a class="page-link" href="{{ route('PasoDos') }}">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="{{ route('PasoTres') }}">3</a></li>
+                    </ul>
+                    </nav>
                 </div>
             </div>
         </div>

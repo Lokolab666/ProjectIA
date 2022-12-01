@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
-        error_log('HELLO');
+        
         $users = User::all();
         
         return view ('admin.gestionarUsuario', compact('users'));
@@ -30,7 +31,12 @@ class UserController extends Controller
             'type' => 'required',
         ]);
       
-        $user->update($request->all());
+        $user->update([
+            'user_id' => $request[''],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'type' => $request['type'],
+        ]);
       
         return redirect()->route('GestionarUsuario')
                         ->with('success','User updated successfully');

@@ -69,20 +69,6 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('Usuario') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="user" type="text" class="form-control @error('user') is-invalid @enderror" name="user" value="{{ old('user') }}" required autocomplete="user">
-
-                                @error('user')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="direccion" class="col-md-4 col-form-label text-md-end">{{ __('Dirección') }}</label>
 
                             <div class="col-md-6">
@@ -109,16 +95,83 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="user" class="col-md-4 col-form-label text-md-end">{{ __('Usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Clave') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmación de clave') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <!--
+                                <input id="type" type="number" class="form-control @error('type') is-invalid @enderror" name="type" required autocomplete="type">
+-->
+                                <select class="form-select" aria-label="Default select example" id="type" name="type" required autocomplete="type">
+                                    <option selected>Seleccione Rol</option>
+                                    <option value="0">Niño</option>
+                                    <option value="1">Tutor</option>
+                                    <option value="2">Admin</option>
+                                </select>
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Siguiente') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <p>
+                    <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item active"><a class="page-link" href="{{ route('PasoUno') }}">1</a></li>
+                        <li class="page-item disabled">
+                        <a class="page-link" href="{{ route('PasoDos') }}">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item disabled"><a class="page-link" href="{{ route('PasoTres') }}">3</a></li>
+                    </ul>
+                    </nav>
                 </div>
             </div>
         </div>

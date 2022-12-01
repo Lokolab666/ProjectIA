@@ -33,10 +33,10 @@
                                             <td class="type">{{$user->type}}</td>
                                             <td>
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                    <a class="btn btn-warning edit_user" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-warning edit_user" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-pencil"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

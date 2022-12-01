@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Crear Personas</h5>
                         <p class="card-text">Crea una nueva persona para que pueda registrarse en el aplicativo</p>
-                        <a href="{{ route('CrearPersona') }}" class="btn btn-primary">Crear</a>
+                        <a href="{{ route('PasoUno') }}" class="btn btn-primary">Crear</a>
                     </div>
                 </div>
             </div>

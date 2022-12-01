@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}">
+                            <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}" readonly>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Contraseña</label>
@@ -31,7 +31,13 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Tipo de usuario</label>
-                            <input type="number" class="form-control" id="type" name="type" value="{{ $user->type }}">
+                          <!--  <input type="number" class="form-control" id="type" name="type" value="{{ $user->type }}">-->
+                            <select class="form-select" aria-label="Default select example" id="type" name="type" required autocomplete="type">
+                                    <option selected>Seleccione Rol</option>
+                                    <option value="0">Niño</option>
+                                    <option value="1">Tutor</option>
+                                    <option value="2">Admin</option>
+                            </select>
                         </div>
                     <div class="submit-section">
                         <button type="submit" class="btn btn-primary ml-3">Actualizar</button>
